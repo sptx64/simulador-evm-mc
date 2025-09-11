@@ -1,0 +1,18 @@
+[project]
+name = "simulador-evm-mc"
+version = "0.1.0"
+description = "Simulador Streamlit de gestión de proyectos con Monte Carlo y EVM"
+requires-python = ">=3.10"
+dependencies = [
+  "streamlit>=1.36",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "plotly>=5.22",
+  # Habilita si lo deseas y tu plataforma lo soporta sin conflictos:
+  # "numba>=0.59",
+  # "networkx>=3.3",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
