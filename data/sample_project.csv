@@ -1,0 +1,8 @@
+id,name,predecessors,dur_o,dur_m,dur_p,cost_o,cost_m,cost_p
+A,Diseño del área y permisos,,5,7,10,800,1000,1300
+B,Compra de maquinaria,A,7,10,14,5000,6000,7500
+C,Instalación de maquinaria,B,5,7,12,2000,2500,3200
+D,Adecuación eléctrica e infraestructura,A,6,8,12,1500,2000,2800
+E,Pruebas de funcionamiento,"C, D",3,5,8,800,1200,1800
+F,Capacitación del personal,C,4,6,9,1000,1400,2000
+G,Puesta en marcha,"E, F",2,3,5,500,700,1000

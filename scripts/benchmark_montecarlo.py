@@ -1,1 +1,0 @@
-# Benchmarks de simulación (pendiente).

@@ -1,6 +1,0 @@
-id,desc,deps,t_o,t_m,t_p,c_o,c_m,c_p
-A,Arranque,,3,5,8,1000,1200,1600
-B,Planificación,A,2,3,6,500,700,1100
-C,Ejecución,A,10,12,20,2500,3000,4200
-D,Control,"B,C",4,5,9,800,900,1300
-E,Cierre,D,1,2,4,300,350,500

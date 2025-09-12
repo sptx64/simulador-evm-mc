@@ -1,24 +1,64 @@
-# Simulador Web de Gestión de Proyectos con Riesgo (Monte Carlo) y EVM
+# Simulador de Proyecto: Monte Carlo + EVM (PERT/CPM + Kanban)
 
-App multipágina en **Streamlit** para:
-- Definir WBS + precedencias con escenarios (optimista, más probable, pesimista).
-- Simular **Monte Carlo** (duración y costo) y estimar percentiles P10/P50/P80.
-- Calcular **ruta crítica por iteración** (criticidad).
-- Registrar avances y **EVM** (PV, EV, AC, SPI, CPI) y proyectar **EAC/ETC** con bandas.
+Aplicación **Streamlit** multipágina para:
+- Definir un proyecto (actividades, dependencias, O/M/P en tiempo y costo)
+- Calcular **baseline** con **PERT/CPM**
+- Ejecutar **Monte Carlo** (duración y costo; ruta crítica por iteración)
+- Registrar avance real y costos (**EVM**: PV, EV, AC, SV, CV, SPI, CPI + **EAC** y **EAC_mc**)
+- Visualizar **histogramas**, **curvas S** y un **dashboard** integral
 
-> Nota: Por preferencia del usuario, **no se usa `ace_tools`** en ningún archivo.
+> **No usa `ace_tools`.** Dependencias mínimas.
 
-## Inicio rápido
+---
+
+## Cómo ejecutar
+
 ```bash
-# 1) Crear entorno virtual (opcional, recomendado)
-python -m venv .venv && source .venv/bin/activate  # (Windows: .venv\Scripts\activate)
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
 
-# 2) Instalar paquete y dependencias
-pip install -e .
-
-# 3) Ejecutar la app
+pip install -r requirements.txt
 streamlit run app/Home.py
 ```
 
-## Estructura
-Ver el árbol de carpetas y descripciones en los archivos dentro de `app/` y `core/`.
+---
+
+## Flujo de uso
+
+1. **Definición de Proyecto**: edita la tabla (IDs, predecesoras separadas por coma, O/M/P).
+2. **Baseline (CPM)**: calcula ES/EF/LS/LF, holguras y **ruta crítica**.
+3. **Simulación Monte Carlo**: define N/semilla/distribución y ejecuta.
+4. **EVM**: registra `percent_complete` y `actual_cost_to_date`; obtiene PV/EV/AC, SPI/CPI, EAC y **EAC_mc**.
+5. **Dashboard**: consulta KPIs y gráficos clave. Exporta CSVs si necesitas.
+
+---
+
+## Estructura del repo (resumen)
+
+```
+app/                # Código de la app
+  core/             # Lógica de dominio: CPM, MC, EVM
+  services/         # Estado y E/S
+  ui/               # Widgets y gráficos plotly
+  utils/            # Validaciones y utilidades
+data/               # Ejemplos y estado
+tests/              # Pruebas (pytest)
+docs/               # Plantillas de reporte y video
+```
+
+---
+
+## FAQ
+
+- **Ciclos en el grafo**: revisa tus `predecessors`; la app valida aciclicidad.
+- **IDs duplicadas**: cada actividad debe tener un `id` único.
+- **PV o AC cero**: SPI/CPI pueden no estar definidos; revisa datos y fecha de corte.
+- **Error de importación en páginas**: el paquete `app/` trae `__init__.py` para evitar `ModuleNotFoundError`.
+- **Distribución PERT**: se usa Beta-PERT (λ=4). Alternativamente triangular.
+
+---
+
+## Licencia
+MIT

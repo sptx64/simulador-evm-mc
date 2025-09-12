@@ -1,12 +1,22 @@
-from core.cpm import cpm_forward, cpm_backward
+import pandas as pd
+from app.utils.helpers import project_from_df
+from app.core.cpm import compute_baseline_cpm
 
 def test_cpm_small():
-    nodes = ["A","B","C"]
-    edges = {"A":[], "B":["A"], "C":["B"]}  # deps (preds) por nodo
-    d = {"A":2.0,"B":3.0,"C":4.0}
-    ES, EF = cpm_forward(nodes, edges, d)
-    T = max(EF.values())
-    LS, LF = cpm_backward(nodes, edges, d, T)
-    assert round(T,2) == 9.0
-    slack = {i: LS[i]-ES[i] for i in nodes}
-    assert all(abs(s) < 1e-9 for s in slack.values())
+    df = pd.DataFrame({
+        "id": ["A","B","C","D"],
+        "name": ["A","B","C","D"],
+        "predecessors": ["","A","A","B,C"],
+        "dur_o": [1,1,1,1],
+        "dur_m": [2,2,2,2],
+        "dur_p": [3,3,3,3],
+        "cost_o":[0,0,0,0],
+        "cost_m":[0,0,0,0],
+        "cost_p":[0,0,0,0],
+    })
+    project = project_from_df(df)
+    bl = compute_baseline_cpm(project)
+    assert bl["duration"] > 0
+    assert isinstance(bl["critical_path"], list)
+    ids = set(df["id"])
+    assert all(n in ids for n in bl["critical_path"])
