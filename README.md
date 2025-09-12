@@ -1,5 +1,8 @@
 # Simulador de Proyecto: Monte Carlo + EVM (PERT/CPM + Kanban)
 
+**Presentacion en YouTube:**  
+[**YouTube Link**](https://youtu.be/ONFWqNvDdhw)  
+
 **Integrantes del proyecto**
 - Cesar Roberto Catalán Escobar  
 - Jonathan Jose Amado Moreno  
