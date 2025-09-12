@@ -1,5 +1,10 @@
 # Simulador de Proyecto: Monte Carlo + EVM (PERT/CPM + Kanban)
 
+**Integrantes del proyecto**
+- Cesar Roberto Catalán Escobar  
+- Jonathan Jose Amado Moreno  
+- Luis Florian  
+
 Aplicación **Streamlit** multipágina para:
 - Definir un proyecto (actividades, dependencias, O/M/P en tiempo y costo)
 - Calcular **baseline** con **PERT/CPM**
@@ -11,7 +16,11 @@ Aplicación **Streamlit** multipágina para:
 
 ---
 
+
 ## Cómo ejecutar
+
+**Ejecuta las simulaciones en línea:**  
+[**App de Streamlit – Proyecto Final**](https://simulador-evm-mc.streamlit.app)  
 
 ```bash
 python -m venv .venv
