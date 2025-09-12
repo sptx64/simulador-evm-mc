@@ -12,8 +12,6 @@ Aplicación **Streamlit** multipágina para:
 - Registrar avance real y costos (**EVM**: PV, EV, AC, SV, CV, SPI, CPI + **EAC** y **EAC_mc**)
 - Visualizar **histogramas**, **curvas S** y un **dashboard** integral
 
-> **No usa `ace_tools`.** Dependencias mínimas.
-
 ---
 
 
