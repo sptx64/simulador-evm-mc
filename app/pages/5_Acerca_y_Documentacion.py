@@ -36,4 +36,4 @@ st.markdown("- **Plantilla de reporte**: `docs/report_template.md`.")
 st.markdown("- **Guion de video**: `docs/video_outline.md`.")
 
 st.divider()
-st.caption("Licencia: MIT. Autoría: Tú. Esta app no usa `ace_tools`.")
+st.caption("Licencia: MIT. Autoría: Jonathan Amado, Cesar Catalán, Luis Florian - 2025.")
