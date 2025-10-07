@@ -17,7 +17,7 @@ from app.utils.helpers import project_from_df, to_csv_download
 from app.ui.widgets import kpi, toast_success
 from app.ui.charts import line_plotly
 
-st.set_page_config(page_title="Definición de Proyecto", page_icon="📝", layout="wide")
+st.set_page_config(page_title="Definición de Proyecto", page_icon="📝",)
 st.title("1) Definición de Proyecto")
 
 state = get_state()
