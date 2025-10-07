@@ -9,7 +9,7 @@ pages_dict = {
     st.Page("pages/EVM.py", title="EVM", icon=":material/front_loader:"),
                 ],
   "DASHBOARD" : [st.Page("pages/dashboard.py", title="Results", icon=":material/delete:"),],
-  "DOCS" : [st.Page("pages/Docs", title="Docs")],
+  "DOCS" : [st.Page("pages/docs.py", title="Docs")],
 }
 
 pg = st.navigation( pages_dict, )
