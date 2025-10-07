@@ -17,12 +17,12 @@ from app.ui.widgets import kpi
 from app.ui.charts import hist_plotly, cdf_plotly, evm_s_curve_plotly
 
 st.set_page_config(page_title="Dashboard Resultados", page_icon="📊", layout="wide")
-st.title("4) Dashboard de Resultados")
+st.title("Results")
 
 state = get_state()
 
 if state["project_df"] is None:
-    st.info("Carga o define un proyecto primero.")
+    st.info("First load or define a project.")
     st.stop()
 
 project = project_from_df(state["project_df"])
